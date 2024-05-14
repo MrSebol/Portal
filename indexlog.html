@@ -1,6 +1,19 @@
-<form class="form-container" action="login.php" method="post">
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logowanie</title>
     <link rel="stylesheet" href="style.css">
-    <input type="email" name="email" placeholder="Adres e-mail" required><br>
-    <input type="password" name="password" placeholder="Haslo" required><br>
-    <button type="submit">Zaloguj sie</button>
-</form>
+</head>
+<body>
+    <h1>Logowanie</h1>
+    <form action="login.php" method="post">
+        <label for="email">Adres e-mail:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        <label for="password">Hasło:</label><br>
+        <input type="password" id="password" name="password" required><br>
+        <button type="submit">Zaloguj się</button>
+    </form>
+</body>
+</html>

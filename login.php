@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 // Połączenie z bazą danych
 $db = new mysqli('localhost', 'root', '', 'Portal');
 
@@ -12,7 +14,7 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 
 // Pobranie hasła z bazy danych
-$stmt = $db->prepare("SELECT password FROM users WHERE email = ?");
+$stmt = $db->prepare("SELECT id, password FROM users WHERE email = ?");
 $stmt->bind_param("s", $email);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -20,7 +22,9 @@ $user = $result->fetch_assoc();
 
 // Sprawdzenie hasła
 if ($user && password_verify($password, $user['password'])) {
-    echo "Zalogowano pomyślnie!";
+    $_SESSION['user_id'] = $user['id']; // Zapisanie ID użytkownika w sesji
+    header("Location: indexglowna.html"); // Przekierowanie na stronę główną po udanym logowaniu
+    exit();
 } else {
     echo "Błędny adres e-mail lub hasło!";
 }
