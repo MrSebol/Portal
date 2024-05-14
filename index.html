@@ -1,39 +1,9 @@
-<<<<<<< HEAD
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Social Profile</title>
-  <link rel="stylesheet" href="style1.css">
-</head>
-<body>
-  <div class="container">
-    <h1>Witaj na naszej stronie</h1>
-    <div class="buttons">
-      <a href="logowanie.php" class="login-btn">Zaloguj się</a>
-      <a href="rejstracja.php" class="register-btn">Zarejestruj się</a>
-    </div>
-  </div>
-</body>
-</html>
-=======
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Social Profile</title>
-  <link rel="stylesheet" href="style1.css">
-</head>
-<body>
-  <div class="container">
-    <h1>Witaj na naszej stronie</h1>
-    <div class="buttons">
-      <a href="logowanie.php" class="login-btn">Zaloguj się</a>
-      <a href="rejstracja.php" class="register-btn">Zarejestruj się</a>
-    </div>
-  </div>
-</body>
-</html>
->>>>>>> a97da729c16aeee0c34daa3e9a09e4db51b4ec68
+<form class="form-container" action="register.php" method="post">
+    <link rel="stylesheet" href="style.css">
+    <input type="text" name="first_name" placeholder="Imie" required><br>
+    <input type="text" name="last_name" placeholder="Nazwisko" required><br>
+    <input type="email" name="email" placeholder="Adres e-mail" required><br>
+    <input type="password" name="password" placeholder="Haslo" required><br>
+    <input type="password" name="confirm_password" placeholder="Potwierdz haslo" required><br>
+    <button type="submit">Zaloz konto</button>
+</form>
