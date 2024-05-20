@@ -1,8 +1,9 @@
 <?php
-//inicializacja sesji
-session_start();
 //zaimportuj kod klasy
 require_once('class/User.class.php');
+//inicjalizacja sesji
+session_start();
+
 
 if (isset($_REQUEST['email']) && isset($_REQUEST['password'])) {
     //wysłano formularz - przechwyć i obrób dane
@@ -38,11 +39,17 @@ if (isset($_REQUEST['email']) && isset($_REQUEST['password'])) {
                 <input type="password" class="form-control mb-3" name="password" id="passwordInput">
 
                 <button type="submit" class="btn btn-primary w-100 mt-3">Zaloguj</button>
+                
             </form>
+                <a href="index.php">
+                <button class="btn btn-primary w-100 mt-3">Powrót</button>
+                </a>
             <?php
             if (isset($result)) {
                 if ($result) {
-                    echo "Użytkownik zalogowany";
+                    echo "Użytkownik zalogowany<br>";
+                    echo '<a href="index.php">Przejdź do głównej strony</a>';
+                    
                 } else {
                     echo "Użytkownik nie zalogowany";
                 }
@@ -51,6 +58,10 @@ if (isset($_REQUEST['email']) && isset($_REQUEST['password'])) {
             ?>
         </div>
     </div>
+    <?php
+    echo "<pre>";
+    var_dump($_SESSION);
+    ?>
 </body>
 
 </html>

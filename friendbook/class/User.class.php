@@ -5,14 +5,14 @@ class User {
 
     private int $_id;
     private string $_email;
-
     
-    public function __construct(int $id, $email)
+    //konstruktor tworzy egzemplarz obiektu user i zapisuje
+    //w nim id i email użytkownika
+    public function __construct(int $id, string $email)
     {
-        $_id = $id;
-        $_email = $email;
+        $this->_id = $id;
+        $this->_email = $email;
     }
-
 
     static function Register(string $email, string $password) : bool {
         //poniższa funkcja odpowiada za dodanie użytkownika do właściwej tabeli w bazie danych
@@ -23,7 +23,7 @@ class User {
 
 
         //połączenie do bazy danych
-        $db = new mysqli('localhost', 'root', '', 'portal');
+        $db = new mysqli('localhost', 'root', '', 'friendbook');
         //kwerenda do bazy danych
         $sql = "INSERT INTO user (email, password) VALUES (?, ?)";
         //zapytanie
@@ -39,7 +39,7 @@ class User {
     static function Login(string $email, string $password) : bool {
         //poniższa funkcja odpowiada za logowanie użytkownika
         //połączenie do bazy danych
-        $db = new mysqli('localhost', 'root', '', 'portal');
+        $db = new mysqli('localhost', 'root', '', 'friendbook');
         //tworzymy w języku SQL zapytanie, tam gdzie chcemy uzyć
         //zmiennych wstawiamy "?"
         $sql = "SELECT * FROM user WHERE email = ?";
@@ -63,6 +63,7 @@ class User {
             //na tym etapie wiemy, że hasło pasuje
             $u = new User($row['ID'], $row['email']);
             //zapis do sesji
+            $_SESSION['user'] = $u;
             //poki co zwróć true jeśli jest zalogowany lub false jeśli nie
             return true;
         }
