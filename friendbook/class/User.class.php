@@ -14,6 +14,10 @@ class User {
         $this->_email = $email;
     }
 
+    public function GetID() : int {
+        return $this->_id;
+    }
+
     static function Register(string $email, string $password) : bool {
         //poniższa funkcja odpowiada za dodanie użytkownika do właściwej tabeli w bazie danych
         //user{id INT, email VARCHAR(128), password VARCHAR(128)}
@@ -23,7 +27,7 @@ class User {
 
 
         //połączenie do bazy danych
-        $db = new mysqli('localhost', 'root', '', 'friendbook');
+        $db = new mysqli('localhost', 'root', '', 'profile');
         //kwerenda do bazy danych
         $sql = "INSERT INTO user (email, password) VALUES (?, ?)";
         //zapytanie
@@ -39,7 +43,7 @@ class User {
     static function Login(string $email, string $password) : bool {
         //poniższa funkcja odpowiada za logowanie użytkownika
         //połączenie do bazy danych
-        $db = new mysqli('localhost', 'root', '', 'friendbook');
+        $db = new mysqli('localhost', 'root', '', 'profile');
         //tworzymy w języku SQL zapytanie, tam gdzie chcemy uzyć
         //zmiennych wstawiamy "?"
         $sql = "SELECT * FROM user WHERE email = ?";
