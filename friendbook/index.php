@@ -1,4 +1,6 @@
 <?php
+require_once('class/User.class.php');
+require_once('class/Profile.class.php');
 session_start();
 ?>
 <!DOCTYPE html>
@@ -13,7 +15,6 @@ session_start();
 </head>
 
 <body>
-    
 
 <a href="login.php">
 <button class="btn btn-primary">Logowanie</button>
@@ -24,10 +25,11 @@ session_start();
 <a href="profile.php">
 <button class="btn btn-primary">Profil</button>
 </a>
+<br>
 <?php
 $profiles = Profile::GetAll();
 foreach ($profiles as $profile) {
-    echo '<img src="' .$profile->getProfilePhotoURL().'"style="height: 200px">'
+    echo '<img src="'.$profile->getProfilePhotoURL().'" style="height: 200px">';
     echo $profile->getFullName();
     echo "<br>";
 }

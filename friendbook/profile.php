@@ -39,6 +39,7 @@ Imię i nazwisko: <?php echo $p->getFullName(); ?><br>
 Zdjęcie profilowe: <img src="<?php echo $p->getProfilePhotoURL(); ?>">
 
 <a href="index.php">
-<button class="btn btn-primary">Powrót</button>
+<button class="btn btn-primary">Strona główna</button>
+</a>
 </body>
 </html>
