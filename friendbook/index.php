@@ -13,6 +13,7 @@ session_start();
 </head>
 
 <body>
+    
 
 <a href="login.php">
 <button class="btn btn-primary">Logowanie</button>
@@ -23,5 +24,13 @@ session_start();
 <a href="profile.php">
 <button class="btn btn-primary">Profil</button>
 </a>
+<?php
+$profiles = Profile::GetAll();
+foreach ($profiles as $profile) {
+    echo '<img src="' .$profile->getProfilePhotoURL().'"style="height: 200px">'
+    echo $profile->getFullName();
+    echo "<br>";
+}
+?>
 </body>
 </html>
