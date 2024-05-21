@@ -19,7 +19,7 @@ class Profile {
         //pobierz jeden profil po jego ID
         //zwróć obiekt Profile
         //połączenie do bazy danych
-        $db = new mysqli('localhost', 'root', '', 'profile');
+        $db = new mysqli('localhost', 'root', '', 'friendbook');
         //kwerenda do bazy danych
         $sql = "SELECT * FROM profile WHERE ID=? LIMIT 1";
         $q = $db->prepare($sql);
@@ -33,7 +33,7 @@ class Profile {
     static function GetAll() : array {
         //pobierz wszystkie profile
         //zwróć tablicę obiektów Profile
-        $db = new mysqli('localhost', 'root', '', 'profile');
+        $db = new mysqli('localhost', 'root', '', 'friendbook');
         //kwerenda do bazy danych
         $sql = "SELECT * FROM profile LIMIT 500";
         $q = $db->prepare($sql);
@@ -48,7 +48,7 @@ class Profile {
     static function GetUserProfile($userID) : Profile {
         //pobierz profil użytkownika
         //zwróć obiekt Profile
-        $db = new mysqli('localhost', 'root', '', 'profile');
+        $db = new mysqli('localhost', 'root', '', 'friendbook');
         //kwerenda do bazy danych
         $sql = "SELECT * FROM profile WHERE userID=? LIMIT 1";
         $q = $db->prepare($sql);
